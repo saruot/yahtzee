@@ -27,6 +27,7 @@ export default Gameboard = ({ navigation, route }) => {
     const [endTurnStatus, setEndTurnStatus] = useState(false);
     const [turnCounter, setTurnCounter] = useState(0)
     const [bonusSum, setBonusSum] = useState()
+    const [topStatus, setTopStatus] = useState('')
 
 
     useEffect(() => {
@@ -45,7 +46,7 @@ export default Gameboard = ({ navigation, route }) => {
             </Col>
         );
     }
-    
+
 const dicesRow = [];
 for (let dice = 0; dice < NBR_OF_DICES; dice++) {
     dicesRow.push(
@@ -89,7 +90,9 @@ for (let dice = 0; dice < NBR_OF_DICES; dice++) {
     function getDicePointsColor(i) {
         if (selectedDicePoints[i] && !gameEndStatus) {
             return "#4d4dff"
-        } else
+        } else if (gameEndStatus) {
+            return "#b3b3ff"
+        }
         { return "#b3b3ff"}
     }
 
@@ -116,16 +119,18 @@ for (let dice = 0; dice < NBR_OF_DICES; dice++) {
         if (nbrOfThrows === 0 && !gameEndStatus) {
             setStatus("Select your points before next throw.")
             return 1;
-        } else if (nbrOfThrows === 0 && gameEndStatus) {
+        } else if (gameEndStatus) {
             setGameEndStatus(false);
             diceSpots.fill(0);
             dicePointsTotal.fill(0);
             setSelectedDices(new Array(NBR_OF_DICES).fill(false));
+            setSelectedDicePoints(new Array(MAX_SPOT).fill(false))
             setNbrOfThrows(3);
             setNbrOfThrowsLeft(3);
             setTurnCounter(0);
             setDicePointsTotal(new Array(MAX_SPOT).fill(0))
-            
+            console.log(setGameEndStatus);
+            setBonusSum()
         }
 
         let spots = [...diceSpots];
@@ -140,6 +145,7 @@ for (let dice = 0; dice < NBR_OF_DICES; dice++) {
         setNbrOfThrows(nbrOfThrows - 1);
         setDiceSpots(spots);
         setStatus("Select and throw dices again.")
+        setTopStatus('')
         if (!gameEndStatus &&  nbrOfThrowsLeft === 1) {
             setEndTurnStatus(true)
         }
@@ -174,9 +180,10 @@ for (let dice = 0; dice < NBR_OF_DICES; dice++) {
         setGameEndStatus(true)
         if (sum > bonusChecker) {
             setBonusSum(sum + 50)
-            setStatus('Game over, you reached the bonus! \nClick Throw Dices to start a new game.')
+            setStatus(' Game over, you reached the bonus! \n 50 points awarded! \n Click Throw Dices to start a new game.')
         } else {
-            setStatus('Game over. Click Throw Dices to start a new game.')
+            setTopStatus('Game over.')
+            setStatus('Click Throw Dices to start a new game.')
         }
     }
     }, [turnCounter])
@@ -191,6 +198,7 @@ for (let dice = 0; dice < NBR_OF_DICES; dice++) {
                     <Container fluid>
                         <Row>{dicesRow}</Row>
                     </Container>
+                    <Text style={styles.gametext}>{topStatus}</Text>
                     <Text style={styles.gametext}>{status}</Text>
                     <Pressable onPress={throwDices} style={styles.button}>
                         <Text style={styles.buttonText}>THROW DICES</Text>
