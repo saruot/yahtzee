@@ -178,7 +178,7 @@ for (let dice = 0; dice < NBR_OF_DICES; dice++) {
         const bonusChecker = 63;
         if (turnCounter == 6 && !endTurnStatus) {
         setGameEndStatus(true)
-        if (sum > bonusChecker) {
+        if (sum >= bonusChecker) {
             setBonusSum(sum + 50)
             setStatus(' Game over, you reached the bonus! \n 50 points awarded! \n Click Throw Dices to start a new game.')
         } else {
