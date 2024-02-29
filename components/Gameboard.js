@@ -178,7 +178,6 @@ for (let dice = 0; dice < NBR_OF_DICES; dice++) {
             setNbrOfThrows(3);
             setNbrOfThrowsLeft(3);
             setTurnCounter(turnCounter + 1);
-            console.log(turnCounter);
             return points[i];
     }
     }
