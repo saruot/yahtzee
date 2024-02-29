@@ -8,12 +8,12 @@ export default StyleSheet.create({
   header: {
     marginTop: 30,
     marginBottom: 15,
-    backgroundColor: 'skyblue',
+    backgroundColor: '#b3b3ff',
     flexDirection: 'row',
   },
   footer: {
     marginTop: 20,
-    backgroundColor: 'skyblue',
+    backgroundColor: '#b3b3ff',
     flexDirection: 'row'
   },
   title: {
@@ -55,15 +55,16 @@ export default StyleSheet.create({
     margin: 30,
     flexDirection: "row",
     padding: 10,
-    backgroundColor: "#73CED6",
+    backgroundColor: "#b3b3ff",
     width: 150,
     borderRadius: 15,
     justifyContent: 'center',
     alignItems: 'center'
   },
   buttonText: {
-    color:"#2B2B52",
-    fontSize: 20
+    color:"black",
+    fontWeight:"bold",
+    fontSize: 15
   },
   scoreContainer: {
     marginTop: 20,
@@ -77,12 +78,12 @@ export default StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
   },
-  selectedScoreButton: {
-    backgroundColor: 'gray', // Change the background color when the button is selected
-  },
   scoreText: {
     fontSize: 16,
     fontWeight: 'bold',
     color: '#333',
-  },
+  }, shiftedRight: {
+    marginLeft: 5,
+    justifyContent: 'space-evenly', 
+  }
 });
