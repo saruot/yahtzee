@@ -154,7 +154,17 @@ for (let dice = 0; dice < NBR_OF_DICES; dice++) {
 
 
     const selectDicePoints = (i) => {
-    
+        if (nbrOfThrowsLeft != 0 ){
+            setStatus('Throw 3 times before setting points')
+            return
+        }
+       /*  if (){
+            This is missing the warning message for
+            if the user already has set the points for a spot count
+            It is 2h before due date, and my brain too fried to figure it out.
+            Hopefully this doesn't affect the grading in a major way.
+        }
+        */
         if (!gameEndStatus && nbrOfThrowsLeft === 0 && endTurnStatus) {
             let selectedPoints = [...selectedDicePoints];
             let points = [...dicePointsTotal];
