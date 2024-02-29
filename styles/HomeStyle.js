@@ -21,6 +21,7 @@ const homeStyles = StyleSheet.create({
     padding: 10,
     marginBottom: 10,
     width: "100%",
+    fontFamily: 'merriweather-regular',
   },
   button: {
     backgroundColor: "#b3b3ff",
@@ -32,13 +33,14 @@ const homeStyles = StyleSheet.create({
     alignSelf: "center",
   },
   buttonText: {
+    fontFamily: 'merriweather-regular',
     color: "white",
-    fontWeight: "bold",
   },
   rulesContainer: {
     marginTop: 20,
   },
   rulesText: {
+    fontFamily: 'merriweather-regular',
     marginBottom: 10,
     alignSelf: "center",  
     textAlign: "center",

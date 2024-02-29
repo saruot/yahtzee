@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
   },
   header: {
     marginTop: 30,
@@ -14,42 +14,43 @@ export default StyleSheet.create({
   footer: {
     marginTop: 20,
     backgroundColor: '#b3b3ff',
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   title: {
     color: '#fff',
-    fontWeight: 'bold',
     flex: 1,
     fontSize: 23,
     textAlign: 'center',
     margin: 10,
+    fontFamily: 'merriweather-regular',
   },
   author: {
     color: '#fff',
-    fontWeight: 'bold',
     flex: 1,
     fontSize: 15,
     textAlign: 'center',
     margin: 10,
+    fontFamily: 'merriweather-regular',
   },
   gameboard: {
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   gameinfo: {
     backgroundColor: '#fff',
     textAlign: 'center',
     justifyContent: 'center',
     fontSize: 20,
-    marginTop: 10
+    marginTop: 10,
+    fontFamily: 'merriweather-regular',
   },
   row: {
     marginTop: 20,
-    padding: 10
+    padding: 10,
   },
   flex: {
-    flexDirection: "row"
+    flexDirection: "row",
   },
   button: {
     margin: 30,
@@ -59,12 +60,12 @@ export default StyleSheet.create({
     width: 150,
     borderRadius: 15,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   buttonText: {
-    color:"black",
-    fontWeight:"bold",
-    fontSize: 15
+    color: "black",
+    fontSize: 15,
+    fontFamily: 'merriweather-regular'
   },
   scoreContainer: {
     marginTop: 20,
@@ -82,8 +83,25 @@ export default StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     color: '#333',
-  }, shiftedRight: {
+    fontFamily: 'merriweather-regular',
+  },
+  shiftedRight: {
     marginLeft: 5,
-    justifyContent: 'space-evenly', 
-  }
+    justifyContent: 'space-evenly',
+  },
+  gametext: {
+    fontFamily: 'merriweather-regular',
+  },
+  player: {
+    fontFamily: 'merriweather-regular',
+    marginTop: 25,
+  },
+  totalpoints: {
+    marginBottom: 15,
+    fontFamily: 'merriweather-regular',
+  },
+  throwtext: {
+    fontFamily: 'merriweather-regular',
+    marginBottom: 20,
+  },
 });

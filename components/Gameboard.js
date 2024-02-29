@@ -68,7 +68,7 @@ for (let dice = 0; dice < NBR_OF_DICES; dice++) {
       for (let diceButton = 0; diceButton < MAX_SPOT; diceButton++) {
           pointsToSelectRow.push(
               <Col key={"buttonsRow" + diceButton}>
-                  <Pressable key={"buttonsRow" + diceButton} onPress={() => selectDicePoints(diceButton)}>
+                  <Pressable style={styles.gametext} key={"buttonsRow" + diceButton} onPress={() => selectDicePoints(diceButton)}>
                       <MaterialCommunityIcons
                           name={"numeric-" + (diceButton + 1) + "-circle"}
                           key={"buttonsRow" + diceButton}
@@ -194,7 +194,7 @@ for (let dice = 0; dice < NBR_OF_DICES; dice++) {
             <View style={styles.container}>
                 <Header />
                 <View style={styles.gameboard}>
-                    <Text style={styles.gametext}>Throws left: {nbrOfThrows}</Text>
+                    <Text style={styles.throwtext}>Throws left: {nbrOfThrows}</Text>
                     <Container fluid>
                         <Row>{dicesRow}</Row>
                     </Container>
@@ -203,14 +203,14 @@ for (let dice = 0; dice < NBR_OF_DICES; dice++) {
                     <Pressable onPress={throwDices} style={styles.button}>
                         <Text style={styles.buttonText}>THROW DICES</Text>
                     </Pressable>
-                    <Text style={styles.gametext}>Total points: {bonusSum ? bonusSum : sum} </Text>
+                    <Text style={styles.totalpoints}>Total points: {bonusSum ? bonusSum : sum} </Text>
                     <Container fluid>
                         <Row style={styles.shiftedRight}>{pointsRow}</Row>
                     </Container>
                     <Container fluid>
                         <Row>{pointsToSelectRow}</Row>
                     </Container>
-                    <Text style={styles.gametext}>Player: {playerName}</Text>
+                    <Text style={styles.player}>Player: {playerName}</Text>
                 </View>
                 <Footer />
             </View>

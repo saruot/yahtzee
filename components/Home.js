@@ -24,7 +24,7 @@ export default Home = ({ navigation }) => {
             <View style={homeStyles.baseContainer}>
                 {!hasPlayerName ?
                     <>
-                        <Text>
+                        <Text style={homeStyles.rulesText}>
                             For scoreboard enter your name:
                         </Text>
                         <View style={homeStyles.inputContainer}>

@@ -5,10 +5,31 @@ import Scoreboard from "./components/Scoreboard.js";
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons.js';
-
+import * as Font from 'expo-font';
+import { useEffect, useState } from 'react';
 const Tab = createBottomTabNavigator();
 
 export default function App() {
+  // Font loading to be used anywhere in the app
+  const [fontLoaded, setFontLoaded] = useState(false);
+  useEffect(() => {
+    async function loadFonts() {
+      await Font.loadAsync({
+        'merriweather-regular': require('./assets/fonts/Merriweather-Regular.ttf'),
+        'merriweather-bold': require('./assets/fonts/Merriweather-Bold.ttf'),
+      });
+      setFontLoaded(true);
+    }
+  
+    loadFonts();
+  }, []);
+  
+  if (!fontLoaded) {
+    return null;
+  }
+
+
+
   return (
     <NavigationContainer>
     <Tab.Navigator
